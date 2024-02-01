@@ -1,0 +1,60 @@
+{%include 'base.html'%}
+{%include 'navigation.html'%}
+{%block content%}
+
+
+
+<style>
+    
+    body{
+        background: linear-gradient(rgb(69, 255, 184),rgb(204, 219, 68));
+        font-family: 'poppins',sans-serif;
+    }
+    .btn1{
+        color: black;
+        background-color: #c7a93b;
+        padding: 8px;
+        border-radius: 8px;
+    }
+    .btn1:hover{
+        color: black;
+        background-color: #dbb321;
+    }
+    .btn1:active{
+        color: white;
+        background-color: darkorange;
+    }
+    p{
+        padding: 10px;
+        color: black;
+    }
+</style>
+
+<script>
+    error = "{{error}}"
+    if(error=="no"){
+        alert("Logged in successfully");
+        window.location = "{%url 'home'%}";
+    }
+    else if(error=="yes"){
+        alert("Invalid login try again")
+    }
+</script>
+
+
+<div class="body1 container">
+    <!-- admin login -->
+    <h2 class="text-center">Doctor login</h2>
+    <form method="post">
+        {%csrf_token%}
+        <label>Username : </label>
+        <input type="text" class="form-control" name="name">
+        <label>Password : </label>
+        <input type="password" class="form-control" name="password">
+
+        <input type="submit" value="login" class="form-control btn btn-primary">
+    </form>
+    <p>Not have an account ? <a class="btn1" href="{%url 'doctor_register'%}">Register</a></p>
+</div>
+
+{%endblock content%}

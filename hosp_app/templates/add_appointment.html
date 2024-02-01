@@ -1,0 +1,67 @@
+{%include 'base.html'%}
+{%include 'navigation.html'%}
+
+{%block content%}
+
+
+<style>
+    
+    body{
+        background: linear-gradient(rgb(69, 255, 184),rgb(204, 219, 68));
+        font-family: 'poppins',sans-serif;
+    }
+    /* body{
+        background-color: rgb(88, 178, 194);
+        color: black;
+    } */
+    .btn{
+        color: black;
+    }
+    
+</style>
+
+<script>
+        error = "{{error}}"
+        if(error=="no"){
+            alert("record saved successfully")
+            window.location = "{%url 'view_appointment'%}";
+        }
+        else if(error=="yes"){
+            alert("Fill all the fields")
+        }
+
+</script>    
+
+
+<div class="container mb-5">
+    <h2 class="text-center">Add Appointment</h2>
+
+    <form method="post" class="container mb-5">
+        {%csrf_token%}
+        <label>Doctor name </label>
+        <select name="doctor" class="form-control">
+            {% for i in dr %}
+            <option value="{{i.name}}">{{i.name}}</option>
+            {%endfor%}
+        </select>
+
+        <label>Patient name </label>
+        <select name="patient" class="form-control">
+            {% for i in pa %}
+            <option value="{{i.name}}">{{i.name}}</option>
+            {%endfor%}
+        </select>        
+        
+        <label>Date </label>
+        <input class="form-control" type="date" name="date">
+        <label>Time </label>
+        <input class="form-control" type="time" name="time">
+        <input type="submit" value="Add" onclick="fun()" class="form-control button-large btn btn-primary">    
+    </form>
+
+</div>
+
+
+
+{%include 'footer.html'%}
+{%endblock content%}

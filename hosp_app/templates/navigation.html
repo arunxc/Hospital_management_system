@@ -1,0 +1,73 @@
+{%load static%}
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark ">
+    <div class="container-fluid">
+
+      <div class="logoImage">
+        <img src="{%static '/images/logo.jpg'%}" width="30px" height="30px" alt="logo img"  class="rounded">
+      </div>
+      
+      <div>
+      <a class="navbar-brand my-3" href="{%url 'home' %}"> Hospital Management System</a>
+    </div>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button> 
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav ms-auto">
+          {%if not request.user.is_staff %}  
+          <li class="nav-item">
+            <a class="nav-link active" href="{%url 'home' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{%url 'about' %}">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{%url 'contact' %}">Contact</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">LogIn</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{%url 'login_admin'%}">Admin</a></li>
+              <li><a class="dropdown-item" href="{%url 'doctor_login'%}">Doctor</a></li>
+              <li><a class="dropdown-item" href="#">Patient</a></li>
+            </ul>
+          </li>
+          {% endif %}
+          
+          {%if request.user.is_staff %}
+          <li class="nav-item">
+            <a class="nav-link" href="{%url 'index' %}">Dashboard <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Doctor</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{%url 'view_doctor'%}">View doctor</a></li>
+              <li><a class="dropdown-item" href="{%url 'add_doctor'%}">Add doctor</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Patient</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{%url 'view_patient'%}">View patient</a></li>
+              <li><a class="dropdown-item" href="{%url 'add_patient'%}">Add patient</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Appointment</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{%url 'view_appointment'%}">View Appointment</a></li>
+              <li><a class="dropdown-item" href="{%url 'add_appointment'%}">Add appointment</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{%url 'logout_admin' %}">Logout</a>
+          </li>
+          {% endif %}
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  

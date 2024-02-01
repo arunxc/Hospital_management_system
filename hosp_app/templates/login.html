@@ -1,0 +1,50 @@
+{%include 'base.html'%}
+{%include 'navigation.html'%}
+{%block content%}
+
+
+<style>
+    
+    body{
+        background: linear-gradient(rgb(69, 255, 184),rgb(204, 219, 68));
+        font-family: 'poppins',sans-serif;
+    }
+    /* body{
+        background-color: rgb(88, 178, 194);
+        color: black;
+    } */
+    .btn{
+        color: black;
+    }
+    
+</style>
+
+
+<script>
+    error = "{{error}}"
+    if(error=="no"){
+        alert("Logged in successfully");
+        window.location = "{%url 'index'%}";
+    }
+    else if(error=="yes"){
+        alert("Invalid login try again")
+    }
+</script>
+
+
+<div class="container">
+    <!-- admin login -->
+    <h2 class="text-center">Admin login</h2>
+    <form method="post">
+        {%csrf_token%}
+        <label>Admin name : </label>
+        <input type="text" class="form-control" name="name">
+        <label>Password : </label>
+        <input type="password" class="form-control" name="password">
+
+        <input type="submit" value="login" class="form-control btn btn-primary">
+    </form>
+</div>
+
+{%include 'footer.html'%}
+{%endblock content%}

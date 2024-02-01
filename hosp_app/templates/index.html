@@ -1,0 +1,73 @@
+{%include 'base.html'%}
+{%include 'navigation.html'%}
+{% load static %}
+
+
+{%block content%}
+
+<style>
+    hr.rounded{
+    border-top: 10px solid blue;
+    border-radius: 5px;
+    
+}
+.index-box:hover{
+    background-color: aquamarine;
+    hr{
+        border-top: 10px solid darkred;
+    }
+    
+}
+.index-box{
+
+    /* width: 250px; */
+    background-color: rgb(236, 199, 199);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.3);
+    position: relative;
+    top: 0;
+    transition: all .30s;
+}
+
+.index-box:hover{
+
+top: -20px;
+}
+
+
+
+.index-caption:hover{
+    transform: scale(1.0);
+    transition: 0.5s ease-in-out;
+}
+
+</style>
+<div class="index">
+<h1 class="text-center">Admin Dashboard</h1>
+<div class=" container">
+    <div class="row mt-5">
+        <div class="index-box rounded mx-3 col-lg-3 shadow">
+            <div class="index-caption">
+                <h2 style="color: red;">{{d}}</h2>
+                <a href="{%url 'view_doctor'%}"><h4 style="color: blue;">Doctors</h4></a>
+                <hr class="rounded">
+            </div>
+        </div>
+        <div class="index-box rounded col-lg-3 mx-3 shadow">
+            <h2 style="color: red;">{{p}}</h2>
+            <a href="{%url 'view_patient'%}"><h4 style="color: blue;">Patients</h4></a>
+            <hr class="rounded">
+        </div>
+        <div class="index-box rounded col-lg-3 mx-3 shadow">
+            <h2 style="color: red;">{{a}}</h2>
+            <a href="{%url 'view_appointment'%}"><h4 style="color: blue;">Appointments</h4></a>
+            <hr class="rounded">
+
+        </div>
+    </div>
+</div>
+</div>
+
+{%endblock content%}
+{%include 'footer.html'%}

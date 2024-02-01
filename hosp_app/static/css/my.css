@@ -1,0 +1,55 @@
+.contactdiv:hover{
+    box-shadow: 0 0 50px 0 rgba(0,0,0,0.3);
+    transform: translate Y(-20px);
+
+}
+
+#h1{
+    color: blue;
+}
+
+.member-box{
+    /* width: 250px; */
+    background-color: rgb(236, 199, 199);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.3);
+    position: relative;
+    top: 0;
+    transition: all .30s;
+}
+
+.member-box img{
+    margin-bottom: 30px;
+}
+
+
+.member-box:hover{
+
+    top: -50px;
+}
+
+
+.member-box1{
+    /* width: 250px; */
+    background-color: burlywood;
+    color: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.3);
+    position: relative;
+    top: 0;
+}
+
+.member-caption:hover{
+    transform: scale(1.2);
+    transition: 0.5s ease-in-out;
+}
+
+hr.rounded{
+    border-top: 10px solid lightblue;
+    border-radius: 5px;
+    
+}

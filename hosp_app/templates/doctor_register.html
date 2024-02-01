@@ -1,0 +1,67 @@
+{%include 'base.html'%}
+{%include 'navigation.html'%}
+{%block content%}
+
+
+
+<style>
+    
+    body{
+        background: linear-gradient(rgb(69, 255, 184),rgb(204, 219, 68));
+        font-family: 'poppins',sans-serif;
+    }
+    /* body{
+        background-color: rgb(88, 178, 194);
+        color: black;
+    } */
+    .btn1{
+        color: black;
+        background-color: #c7a93b;
+        padding: 8px;
+        border-radius: 8px;
+    }
+    .btn1:hover{
+        color: black;
+        background-color: #dbb321;
+    }
+    .btn1:active{
+        color: white;
+        background-color: darkorange;
+    }
+    p{
+        padding: 10px;
+        color: black;
+    }
+    
+</style>
+
+<script>
+    error = "{{error}}"
+    if(error=="no"){
+        alert("Registered successfully");
+        window.location = "{%url 'doctor_login'%}";
+    }
+    else if(error=="yes"){
+        alert("Password does not match")
+    }
+</script>
+
+
+<div class="body1 container">
+    <!-- admin login -->
+    <h2 class="text-center">Doctor register</h2>
+    <form method="post">
+        {%csrf_token%}
+        <label>Username : </label>
+        <input type="text" class="form-control" name="name">
+        <label>Password : </label>
+        <input type="password" class="form-control" name="password">
+        <label>Confirm Password : </label>
+        <input type="password" class="form-control" name="confirmpassword">
+
+        <input type="submit" value="login" class="form-control btn btn-primary">
+        <p class=" font-weight-bold">Already registered ? <a class="btn1" href="{%url 'doctor_login'%}">Login</a></p>
+    </form>
+</div>
+
+{%endblock content%}

@@ -1,0 +1,58 @@
+{%include 'base.html'%}
+{%include 'navigation.html'%}
+{%block content%}
+
+
+<style>
+    
+    body{
+        background: linear-gradient(rgb(69, 255, 184),rgb(204, 219, 68));
+        font-family: 'poppins',sans-serif;
+    }
+    /* body{
+        background-color: rgb(88, 178, 194);
+        color: black;
+    } */
+    .btn{
+        color: black;
+    }
+    
+</style>
+
+<script>
+    error = "{{error}}"
+    if(error=="no"){
+        alert("record saved successfully")
+        window.location = "{%url 'view_patient'%}";
+    }
+    else if(error=="yes"){
+        alert("Fill all the fields")
+    }
+
+</script>  
+
+
+
+<div class="container">
+    <h2 class="text-center">Add patient</h2>
+
+    <form method="post">
+        {%csrf_token%}
+        <label>Name </label>
+        <input type="text" class="form-control" name="name">
+        <label>Gender </label>
+        <input type="radio" class="form-check-input" name="gender" value="male"> Male
+        <input type="radio" class="form-check-input" name="gender" value="female"> Female <br>
+
+        <label>Mobile </label>
+        <input type="number" class="form-control" name="mobile">
+        <textarea name="address" placeholder="Enter your address" id="" cols="15" rows="5"></textarea>
+        <input type="submit" value="Add" class="btn btn-info button-large rounded">
+    </form>
+
+</div>
+
+
+
+{%include 'footer.html'%}
+{%endblock content%}

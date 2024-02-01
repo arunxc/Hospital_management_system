@@ -1,0 +1,56 @@
+{%include 'base.html'%}
+{%include 'navigation.html'%}
+
+{%block content%}
+
+<style>
+    
+    body{
+        background: linear-gradient(rgb(69, 255, 184),rgb(204, 219, 68));
+        font-family: 'poppins',sans-serif;
+    }
+    /* body{
+        background-color: rgb(88, 178, 194);
+        color: black;
+    } */
+    .btn{
+        color: black;
+    }
+    
+</style>
+
+
+<script>
+        error = "{{error}}"
+        if(error=="no"){
+            alert("record saved successfully")
+            window.location = "{%url 'view_doctor'%}";
+        }
+        else if(error=="yes"){
+            alert("Fill all the fields")
+        }
+
+</script>    
+
+
+<div class="container mb-5">
+    <h2 class="text-center">Add Doctor</h2>
+
+    <form method="post" class="container mb-5">
+        {%csrf_token%}
+        <label>Name </label>
+        <input id="inp1" type="text" class="form-control" name="name">
+
+        <label>Mobile </label>
+        <input id="inp2" type="number" class="form-control" name="mobile">
+        <label>Special </label>
+        <input id="inp3" type="text" name="special">
+        <input type="submit" value="Add" onclick="fun()" class="form-control btn btn-primary">    
+    </form>
+
+</div>
+
+
+
+{%include 'footer.html'%}
+{%endblock content%}
