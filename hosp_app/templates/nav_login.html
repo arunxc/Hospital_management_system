@@ -24,7 +24,7 @@ a .navbar{
             <img src="{%static '/images/logo.jpg'%}" width="30px" height="30px" alt="logo img"  class="rounded">
         </div>
           
-        <div>
+        <div class="wow fadeIn">
           <p class="mt-3 p-1 pb-0 text-white">Hospital Management System</p>
         </div>
     
@@ -36,7 +36,7 @@ a .navbar{
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
               <li><a class="dropdown-item" href="{%url 'login_admin'%}">Admin</a></li>
               <li><a class="dropdown-item" href="{%url 'doctor_login'%}">Doctor</a></li>
-              <li><a class="dropdown-item" href="#">Patient</a></li>
+              <li><a class="dropdown-item" href="{%url 'home'%}">Patient</a></li>
             </ul>
           </div>
     </div>
@@ -45,11 +45,11 @@ a .navbar{
 <div class="box text-center">
     <h1 class="login">Login</h1>
 
-        <h4><a href="{%url 'login_admin'%}">Admin</a></h4>
+        <h4 ><a class="wow fadeInDown" href="{%url 'login_admin'%}">Admin</a></h4>
 
-        <h4><a href="{%url 'doctor_login'%}">Doctor</a></h4>
+        <h4 ><a class="wow fadeInDown" href="{%url 'doctor_login'%}">Doctor</a></h4>
 
-        <h4><a href="#">patient</a></h4>
+        <h4 ><a class="wow fadeInDown" href="{%url 'home'%}">patient</a></h4>
 
   </div>
 
