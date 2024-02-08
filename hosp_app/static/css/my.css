@@ -27,7 +27,7 @@
 
 .member-box:hover{
 
-    top: -50px;
+    top: -10px;
 }
 
 
@@ -44,7 +44,7 @@
 }
 
 .member-caption:hover{
-    transform: scale(1.2);
+    transform: scale(0.5);
     transition: 0.5s ease-in-out;
 }
 

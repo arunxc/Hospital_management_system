@@ -6,7 +6,7 @@
 {%block content%}
 
 <style>
-a {
+a#log {
     background: linear-gradient(45deg, blue, violet);
     padding: 16px;
     border-radius: 15px;
@@ -34,22 +34,25 @@ a .navbar{
               Login
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item" href="{%url 'login_admin'%}">Admin</a></li>
-              <li><a class="dropdown-item" href="{%url 'doctor_login'%}">Doctor</a></li>
-              <li><a class="dropdown-item" href="{%url 'home'%}">Patient</a></li>
+              <li><a id="link" class="dropdown-item" href="{%url 'login_admin'%}">Admin</a></li>
+              <li><a id="link" class="dropdown-item" href="{%url 'doctor_login'%}">Doctor</a></li>
+              <li><a id="link" class="dropdown-item" href="{%url 'home'%}">Patient</a></li>
             </ul>
           </div>
     </div>
   </nav>
 
 <div class="box text-center">
-    <h1 class="login">Login</h1>
-
-        <h4 ><a class="wow fadeInDown" href="{%url 'login_admin'%}">Admin</a></h4>
-
-        <h4 ><a class="wow fadeInDown" href="{%url 'doctor_login'%}">Doctor</a></h4>
-
-        <h4 ><a class="wow fadeInDown" href="{%url 'home'%}">patient</a></h4>
+    <h1 class="login mt-3">Login</h1>
+    <div class="p-5">
+        <h4 ><a id="log" class="wow animate__animated animate__fadeInUp" href="{%url 'login_admin'%}">Admin</a></h4>
+    </div>
+    <div>
+        <h4 ><a id="log" class="wow animate__animated animate__fadeInUp" href="{%url 'doctor_login'%}">Doctor</a></h4>
+    </div>
+    <div class="p-5">
+        <h4 ><a id="log" class="wow animate__animated animate__fadeInUp" href="{%url 'home'%}">patient</a></h4>
+    </div>
 
   </div>
 
